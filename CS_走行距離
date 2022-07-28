@@ -1,4 +1,4 @@
-//走行距離を動的に表示する
+//走行距離を動的に表示させる
 
 // field2（出発メーター）のフィードIDを取得
 let field2 = ZDK.Page.getField('field2');
