@@ -1,0 +1,29 @@
+// field2（出発メーター）のフィードIDを取得
+let field2 = ZDK.Page.getField('field2');
+
+// 出発メーターのフィールドIDから値を取得
+let strMeter = field2.getValue();
+
+// field3（帰社メーター）のフィードIDを取得
+let field3 = ZDK.Page.getField('field3');
+
+// 帰社メーターのフィールドIDから値を取得
+let endMeter = field3.getValue();
+
+// 走行距離計算（帰社メーター-出発メーター）
+let runMeter = endMeter - strMeter;
+
+// field1（走行距離）のフィールドID？を取得
+let field1 = ZDK.Page.getField('field1');
+
+// 走行距離の値に応じて処理分岐
+// 走行距離が0以上の場合、そのまま値を設定
+if (runMeter >= 0) {
+field1.setValue(runMeter);
+}
+// 走行距離が0未満（マイナス）の場合、0を設定
+else if (runMeter < 0) {
+runMeter = 0;
+field1.setValue(runMeter);
+field1.showError('走行距離がマイナスのため0にしてます');
+}
