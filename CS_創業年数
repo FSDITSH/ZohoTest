@@ -1,0 +1,26 @@
+// field（創業年月日）のフィールドIDを取得
+let field = ZDK.Page.getField('field');
+
+// 創業年月日のフィールドIDから値を取得
+let csSogyoYMD = field.getValue();
+
+// 今日の日付を取得
+let today = new Date();
+
+// 創業年月日をDate変数へ格納
+let csSogyoDt = new Date(csSogyoYMD);
+
+// 今日の日付から年だけを取得
+let thisYear = today.getFullYear();
+
+// 創業年月日から年だけを取得
+let csSogyoY = csSogyoDt.getFullYear();
+
+// 創業年数計算（今年-創業年）
+let updateYear = thisYear - csSogyoY;
+
+// CSYear（創業年数）のフィールドID？を取得
+let csy = ZDK.Page.getField('CSYear');
+
+// 更新処理
+csy.setValue(updateYear);
