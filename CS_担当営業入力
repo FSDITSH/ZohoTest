@@ -1,0 +1,41 @@
+// field12（案件）のフィールドID？を取得
+let field12 = ZDK.Page.getField('field12');
+// console.log(field12);
+
+// 案件のフィールドIDから値を取得
+let anken = field12.getValue();
+// console.log(anken);
+
+// 案件タブデータを取得
+let deal = ZDK.Apps.CRM.Deals.fetchById(anken.id);
+// console.log(deal);
+
+// 案件タブ内の担当営業を取得
+let staffId = deal.Staff_Lookup_Id;
+// console.log(staffId);
+
+// 担当営業タブのデータを取得
+let staff = ZDK.Apps.CRM.Staffs.fetchById(staffId);
+// console.log(staff);
+
+// 担当営業タブのIDを取得
+let staffNameId = staff.id;
+// console.log(staffNameId);
+
+// 担当営業名を取得
+let staffName = staff.Name;
+// console.log(staffName);
+
+// 更新用データ作成
+let object = {
+id: staffNameId,
+name: staffName,
+};
+// console.log(object);
+
+// field13（担当営業）のフィールドID？を取得
+let field13 = ZDK.Page.getField('field13');
+// console.log(field13);
+
+// 更新処理
+field13.setValue(object);
