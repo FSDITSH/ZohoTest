@@ -1,3 +1,4 @@
+// 作業名を自動作成する
 // filed8（作業名）更新関数を実行
 updatefiled8();
 
@@ -48,3 +49,5 @@ let yyyymmdd = year + ' ' + month + ' ' + date;
 
 return yyyymmdd;
 }
+
+
