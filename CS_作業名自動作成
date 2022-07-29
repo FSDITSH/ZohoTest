@@ -1,0 +1,50 @@
+// filed8（作業名）更新関数を実行
+updatefiled8();
+
+// filed9（作成日）更新関数を実行
+updatefiled9();
+
+// filed8（作業名）更新関数定義
+function updatefiled8() {
+// field8（作業名）のフィールドID？を取得
+let field8 = ZDK.Page.getField('field8');
+
+// 今日の日付取得関数を実行
+let today = getToday();
+
+// 作業名の初期値を格納（日付＋CS＋テスト）
+let updateField8 = today + '_CS' + '_テスト';
+
+// 作業名を更新
+field8.setValue(updateField8);
+}
+
+// filed9（作成日）更新関数定義
+function updatefiled9() {
+// field9（作成日）のフィールドID？を取得
+let field9 = ZDK.Page.getField('field9');
+
+// 今日の日付取得関数を実行
+let updateFiled9 = getToday();
+
+// 作成日を更新
+field9.setValue(updateFiled9);
+}
+
+// 今日の日付取得関数定義
+function getToday() {
+// 今日の日付を取得
+let today = new Date();
+
+// 年を取得
+let year = today.getFullYear();
+// 月を取得
+let month = ("00" + (today.getMonth() + 1)).slice(-2);
+// 日を取得
+let date = ("00" + today.getDate()).slice(-2);
+
+// yyyy mm ddの形で結合
+let yyyymmdd = year + ' ' + month + ' ' + date;
+
+return yyyymmdd;
+}
